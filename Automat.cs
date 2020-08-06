@@ -11,10 +11,11 @@ namespace Multiset_finite_automata_simulator
     [Serializable()]
     public class Automat : ISerializable
     {
-        public Dictionary<string, int> inputMultiset { get; private set; }  //input multiset
-        public List<State> states { get; private set; } //set of states
-        public List<Transition> function { get; private set; }  //Transition function delta
+        public Dictionary<string, int> inputMultiset { get; private set; }  //Vstupni multimnožina
+        public List<State> states { get; private set; } //množina stavů
+        public List<Transition> function { get; private set; }  //Přechodová funcke delta
 
+        //DKA
         public string actualSymbol { get; private set; }
         public State actualState { get; private set; }
         public State nextState { get; private set; }
@@ -351,6 +352,7 @@ namespace Multiset_finite_automata_simulator
             inputMultiset = (Dictionary<string, int>)info.GetValue("inputMultiset", typeof(Dictionary<string, int>));
             states = (List<State>)info.GetValue("states", typeof(List<State>));
             function = (List<Transition>)info.GetValue("functions", typeof(List<Transition>));
+
         }
 
 

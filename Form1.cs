@@ -132,7 +132,12 @@ namespace Multiset_finite_automata_simulator
 
             textBoxStavy.Text += line + Environment.NewLine;
 
-            numericUpDownStateNumber.Value++;
+            if(numericUpDownStateNumber.Value < numericUpDownStateNumber.Maximum)
+            {
+                numericUpDownStateNumber.Value++;
+            }
+
+
 
         }
 
@@ -239,7 +244,16 @@ namespace Multiset_finite_automata_simulator
         {
             if (Functions.Count == 0) 
             {
-                ResetState();
+                switch(MessageBox.Show("Opravdu?", "Smazat", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    case DialogResult.Yes:
+                        ResetState();
+                        break;
+
+                    case DialogResult.No:
+                        return;
+                }
+
             }
             else
             {
